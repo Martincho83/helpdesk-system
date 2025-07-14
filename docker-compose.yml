@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Servicio de la Base de Datos PostgreSQL
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: helpdesk_postgres_db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - "5433:5432"
+    volumes:
+      - helpdesk_postgres_data:/var/lib/postgresql/data
+
+  # Servicio del Backend
+  backend:
+    build: ./backend
+    container_name: helpdesk_backend
+    ports:
+      - "8081:8080"
+    environment:
+      DB_HOST: postgres-db # <-- El backend se conecta a la DB usando el nombre del servicio
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      JWT_SECRET: ${JWT_SECRET}
+    depends_on:
+      - postgres-db # <-- Espera a que la DB esté lista antes de iniciar
+
+  # Servicio del Frontend
+  frontend:
+    build: ./frontend
+    container_name: helpdesk_frontend
+    ports:
+      # Mapeamos el puerto 5173 de nuestra máquina al puerto 80 del contenedor Nginx
+      - "5174:80"
+    depends_on:
+      - backend
+
+# Definimos el volumen para persistir los datos de la base de datos
+volumes:
+  helpdesk_postgres_data: {}
