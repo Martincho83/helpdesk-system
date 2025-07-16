@@ -1,27 +1,25 @@
+// backend/src/models/user.js
 'use strict';
-const {  Model} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // Un usuario puede crear muchos tickets
-      User.hasMany(models.Ticket, {
-        foreignKey: 'creatorId',
-        as: 'createdTickets',
+      // --- COMENTAR TEMPORALMENTE ---
+      User.hasMany(models.Ticket, { 
+        foreignKey: 'creatorId', 
+        as: 'createdTickets' 
       });
-      // Un usuario puede ser asignado a muchos tickets
-      User.hasMany(models.Ticket, {
-        foreignKey: 'assigneeId',
-        as: 'assignedTickets',
+      User.hasMany(models.Ticket, { 
+        foreignKey: 'assigneeId', 
+        as: 'assignedTickets' 
       });
-
-      // Un usuario puede hacer muchos comentarios
       User.hasMany(models.Comment, {
         foreignKey: 'userId',
-        as: 'comments',
+        as: 'comments'
       });
+      // -----------------------------
     }
   }
-  
   User.init({
     name: {
       type: DataTypes.STRING,

@@ -2,12 +2,12 @@ require('dotenv').config();
 
 module.exports = {
   "development": {
-    "username": process.env.DB_USERNAME, // || "postgres",
-    "password": process.env.DB_PASSWORD, // || "password",
-    "database": process.env.DB_DATABASE, // || "itam_db",
-    "host": process.env.DB_HOST, // || "localhost",
-    "dialect": postgres, //process.env.DB_DIALECT || "postgres",
-    //"port": process.env.DB_PORT || 5432
+    "username": process.env.DB_USERNAME  || "postgres",
+    "password": process.env.DB_PASSWORD  || "password",
+    "database": process.env.DB_DATABASE  || "helpdesk_db",
+    "host": process.env.DB_HOST || "localhost",
+    "dialect": process.env.DB_DIALECT || "postgres",
+    "port": process.env.DB_PORT || 5432
   },
   "test": {
     "username": process.env.DB_USERNAME || "postgres",
