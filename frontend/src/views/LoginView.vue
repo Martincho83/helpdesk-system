@@ -56,6 +56,7 @@ const handleLogin = async () => {
   align-items: center;
   height: 100vh;
   background-color: #f0f2f5;
+  width: 100%;
 }
 .login-box {
   padding: 40px;

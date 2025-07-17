@@ -14,11 +14,18 @@
       <aside class="sidebar">
         <nav>
           <ul>
-            <!-- Este es el único enlace que necesitamos por ahora -->
-            <li>
-              <router-link to="/dashboard">Dashboard</router-link>
-            </li>
-            <!-- Aquí añadiremos los enlaces para Tickets más adelante -->
+            <li><router-link to="/dashboard">Dashboard</router-link></li>
+
+            <!-- Enlaces de Admin -->
+            <template v-if="authStore.isAdmin">
+              <li><router-link to="/tickets">Gestionar Tickets</router-link></li>
+            </template>
+         
+            <!-- Enlaces de Employee -->
+            <template v-else>
+             <li><router-link to="/tickets/new">Crear Ticket</router-link></li>
+             <li><router-link to="/tickets">Mis Tickets</router-link></li>
+            </template>
           </ul>
         </nav>
       </aside>
@@ -50,6 +57,7 @@ const handleLogout = () => {
   flex-direction: column;
   height: 100vh;
   background-color: #f4f6f8;
+  width: 100%;
 }
 
 .navbar {
@@ -102,7 +110,7 @@ const handleLogout = () => {
 .sidebar {
   width: 240px;
   background-color: #343a40;
-  color: #fff;
+  color: #160505;
   padding-top: 1rem;
   flex-shrink: 0;
   overflow-y: auto;
@@ -137,5 +145,6 @@ const handleLogout = () => {
   flex-grow: 1;
   padding: 2rem;
   overflow-y: auto;
+  color: #333;
 }
 </style>

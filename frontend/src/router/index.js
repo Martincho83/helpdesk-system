@@ -3,31 +3,57 @@ import { useAuthStore } from '../stores/auth.store'
 
 import LoginView from '../views/LoginView.vue'
 import DashboardView from '../views/DashBoardView.vue'
+import TicketListView from '../views/TicketListView.vue'
+import CreateTicketView from '../views/CreateTicketView.vue'
+import TicketDetailView from '../views/TicketDetailView.vue'
 
 import AppLayout from '../layouts/AppLayout.vue'
+
+// Dentro del array 'children' del AppLayout:
+children: [
+  { path: 'dashboard', name: 'dashboard', component: DashboardView },
+  
+  // --- RUTAS DE TICKETS REORDENADAS ---
+  // La ruta más específica ('/new') va primero.
+  { 
+    path: 'tickets/new', 
+    name: 'create-ticket', 
+    component: CreateTicketView 
+  },
+  // La ruta con parámetro (/:id) va después.
+  { 
+    path: 'tickets/:id', 
+    name: 'ticket-detail', 
+    component: TicketDetailView, 
+    props: true 
+  },
+  // La ruta general ('/tickets') va al final.
+  { 
+    path: 'tickets', 
+    name: 'tickets', 
+    component: TicketListView 
+  },
+  
+  { path: '', redirect: '/dashboard' }
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path: '/login',
-      name: 'login',
-      component: LoginView
-    },
+    { path: '/login', name: 'login', component: LoginView },
     {
       path: '/',
       component: AppLayout,
       meta: { requiresAuth: true },
       children: [
-        {
-          path: 'dashboard',
-          name: 'dashboard',
-          component: DashboardView,
-        },
-        {
-          path: '',
-          redirect: '/dashboard'
-        }
+        { path: 'dashboard', name: 'dashboard', component: DashboardView },
+        
+        // Rutas de Tickets
+        { path: 'tickets', name: 'tickets', component: TicketListView },
+        { path: 'tickets/new', name: 'create-ticket', component: CreateTicketView },
+        { path: 'tickets/:id', name: 'ticket-detail', component: TicketDetailView, props: true },
+
+        { path: '', redirect: '/dashboard' }
       ]
     }
   ]
