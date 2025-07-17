@@ -1,4 +1,3 @@
-// src/stores/auth.store.js
 import { defineStore } from 'pinia';
 import apiClient from '../services/api';
 import router from '../router';

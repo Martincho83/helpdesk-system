@@ -1,10 +1,9 @@
-// backend/src/models/user.js
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // --- COMENTAR TEMPORALMENTE ---
+
       User.hasMany(models.Ticket, { 
         foreignKey: 'creatorId', 
         as: 'createdTickets' 
@@ -17,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         as: 'comments'
       });
-      // -----------------------------
+
     }
   }
   User.init({

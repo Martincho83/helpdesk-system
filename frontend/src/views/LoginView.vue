@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <div class="login-box">
-      <h1>Sistema ITAM</h1>
+      <h1>HelpDesk System</h1>
       <h2>Iniciar Sesión</h2>
       <form @submit.prevent="handleLogin">
         <div class="input-group">

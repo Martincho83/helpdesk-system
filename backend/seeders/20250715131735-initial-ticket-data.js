@@ -1,4 +1,3 @@
-// backend/seeders/...-initial-ticket-data.js
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
