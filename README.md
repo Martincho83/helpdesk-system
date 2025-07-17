@@ -4,7 +4,6 @@ Este es un proyecto full-stack que simula un sistema interno de Help Desk, dise�
 
 ## 🌟 Capturas de Pantalla
 
-*(Consejo: Sube tus capturas a la pestaña "Issues" de tu repositorio de GitHub para obtener un enlace público y pégalo aquí)*
 
 | Vista de Tickets (Empleado) | Formulario de Creación | Vista de Tickets (Admin) |
 | :---: | :---: | :---: |
@@ -12,7 +11,7 @@ Este es un proyecto full-stack que simula un sistema interno de Help Desk, dise�
 
 | Vista de Detalle del Ticket | Controles de Admin | Conversación de Comentarios |
 | :---: | :---: | :---: |
-| ![Vista de Detalle](https://github.com/user-attachments/assets/7087e8d1-e716-4327-9070-bb5a222c1b0f) | ![Controles de Admin](https://github.com/user-attachments/assets/3e69bf4c-3300-4edc-8f08-d24a0309bc0c) | ![Conversación](Uhttps://github.com/user-attachments/assets/0857bbae-2d85-45fc-911a-75c43dd21f1c) |
+| ![Vista de Detalle](https://github.com/user-attachments/assets/7087e8d1-e716-4327-9070-bb5a222c1b0f) | ![Controles de Admin](https://github.com/user-attachments/assets/3e69bf4c-3300-4edc-8f08-d24a0309bc0c) | ![Conversación](https://github.com/user-attachments/assets/0857bbae-2d85-45fc-911a-75c43dd21f1c) |
 
 ## ✨ Funcionalidades Principales
 
@@ -117,4 +116,4 @@ Este proyecto está diseñado para ser ejecutado fácilmente con Docker.
 </details>
 
 ---
-*Desarrollado por [Martin Alejandro Lamas](https://www.linkedin.com/in/tu-perfil/)*
+*Desarrollado por [Martin Alejandro Lamas](https://github.com/Martincho83)*
