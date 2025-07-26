@@ -59,7 +59,7 @@ Este proyecto está diseñado para ser ejecutado fácilmente con Docker.
 ### Pasos de Instalación
 1.  **Clona el repositorio:**
     ```bash
-    git clone https://github.com/tu-usuario/helpdesk-system.git
+    git clone https://github.com/Martincho83/helpdesk-system.git
     cd helpdesk-system
     ```
 
